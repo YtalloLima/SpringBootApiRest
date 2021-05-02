@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -61,7 +62,7 @@ public class PokemonControlller {
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity<PokemonDTO> cadastrar(@RequestBody PokemonForm pokeForm, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<PokemonDTO> cadastrar(@RequestBody @Valid PokemonForm pokeForm, UriComponentsBuilder uriBuilder) {
 		Pokemon poke = pokeForm.converter(tipoRepository);
 
 		pokemonRepository.save(poke);
@@ -70,6 +71,8 @@ public class PokemonControlller {
 		
 		return ResponseEntity.created(uri).build();
 	}
+	
+	
 
 	
 }

@@ -1,15 +1,23 @@
 package br.com.aprendizado.pokemon.controller.form;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+
 import br.com.aprendizado.pokemon.modelo.Pokemon;
 import br.com.aprendizado.pokemon.modelo.Tipo;
 import br.com.aprendizado.pokemon.repository.TipoRepository;
 
 public class PokemonForm {
 	
+	@NotNull @NotEmpty @Length(min = 5)
 	private String nome;
 	
+	@NotNull @NotEmpty @Length(min = 5)
 	private String descricao;
 	
+	@NotNull @NotEmpty @Length(min = 3)
 	private String nomeTipo;
 
 	public String getNome() {
