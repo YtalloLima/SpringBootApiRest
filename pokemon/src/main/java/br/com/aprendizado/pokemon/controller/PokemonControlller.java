@@ -47,18 +47,11 @@ public class PokemonControlller {
 	}
 	
 	@GetMapping
-	public List listaPokemons() {
+	public List<PokemonDTO> listaPokemons() {
 		
-		ArrayList<Pokemon> lista = new ArrayList<Pokemon>();
-		Pokemon poke = new Pokemon(Long.valueOf(1), "Charmander", "top");
-		Pokemon poke1 = new Pokemon(Long.valueOf(1), "Charmeleon", "hahah");
-		Pokemon poke2 = new Pokemon(Long.valueOf(1), "Charizard", "eirji");
-		
-		lista.add(poke);
-		lista.add(poke1);
-		lista.add(poke2);
-		
-		return lista;
+		List<Pokemon> pokemons = pokemonRepository.findAll();
+				
+		return PokemonDTO.converterPokemon(pokemons);
 	}
 	
 	@PostMapping
