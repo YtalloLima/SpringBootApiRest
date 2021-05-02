@@ -10,6 +10,8 @@ public class PokemonDTO {
 	private Long id;
 
 	private String nome;
+	
+	private String descricao;
 
 	private LocalDateTime dataCriacao;
 	
@@ -21,6 +23,7 @@ public class PokemonDTO {
 	public PokemonDTO(Pokemon poke) {
 		this.id = poke.getId();
 		this.nome = poke.getNome();
+		this.descricao = poke.getDescricao();
 		this.dataCriacao = poke.getDataCriacao();
 	}
 
@@ -30,6 +33,10 @@ public class PokemonDTO {
 
 	public String getNome() {
 		return nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
 	}
 
 	public LocalDateTime getDataCriacao() {

@@ -16,6 +16,8 @@ public class Pokemon {
 	private Long id;
 
 	private String nome;
+	
+	private String descricao;
 
 	@ManyToOne
 	private Usuario autor;
@@ -29,9 +31,16 @@ public class Pokemon {
 		
 	}
 	
-	public Pokemon(Long id, String nome) {
+	public Pokemon(Long id, String nome, String descricao) {
 		this.id = id;
 		this.nome = nome;
+		this.descricao = descricao;
+	}
+	
+	public Pokemon(String nome, String descricao, Tipo tipo) {
+		this.nome = nome;
+		this.descricao = descricao;
+		this.tipo = tipo;
 	}
 
 	public Long getId() {
@@ -72,5 +81,13 @@ public class Pokemon {
 
 	public void setDataCriacao(LocalDateTime dataCriacao) {
 		this.dataCriacao = dataCriacao;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 }

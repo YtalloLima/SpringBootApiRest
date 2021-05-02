@@ -2,8 +2,6 @@ package br.com.aprendizado.pokemon.repository;
 
 import java.util.List;
 
-import javax.persistence.Id;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.aprendizado.pokemon.modelo.Pokemon;
